@@ -31,9 +31,12 @@ To integrate the deCharge Solana Smart Contract into your Solana project, follow
 The deCharge program exposes three main entry points:
 
 1. `create_user`: Creates a user with the provided phone number hash.
-
 2. `create_charger`: Creates a new charger provided operator pubkey.
 3. `charger_session`: Initiates a charging session with the specified amount.
+
+### BONK Airdrop Mechanism
+
+At the end of every charging session, we airdrop some BONK tokens to the user. This is ~10% of the amount to be paid for the charging session. The BONK price is currently hardcoded ($20 per million) as of writing.
 
 ### Accounts and PDA
 
@@ -105,6 +108,10 @@ struct ChargerSessionAccounts {
     pub nft_mint_owner_ata, // nft mint owner associated token account
     pub operator, // operator pubkey
     pub operator_ata, // operator associated token account
+    pub bonk_mint, // bonk mint address
+    pub bonk_vault_authority, // bonk vault authority (keypair)
+    pub bonk_vault_ata, // bonk vault associated token account
+    pub bonk_receiver_ata, // bonk receiver (user) associated token account
     pub token_program, // token program id
     pub system_program,
 }

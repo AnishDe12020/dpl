@@ -64,6 +64,7 @@ pub fn charger_session_ix(ctx: Context<ChargerSession>, amount: u64) -> Result<(
         mint.decimals,
     )?;
 
+    // This token transfer is for the BONK airdrop which is ~10% of the total amount in BONK tokens. We are currently using a hardcoded value of $BONK_PRICE_PER_M for 1M BONK.
     transfer_checked(
         CpiContext::new(
             token_program.to_account_info(),
