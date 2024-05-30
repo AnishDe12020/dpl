@@ -92,13 +92,16 @@ pub struct ChargerSession<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
     #[account(
+        mut,
         token::mint = mint,
         token::authority = user
     )]
     pub user_ata: Account<'info, TokenAccount>,
     /// CHECK: charger unsafe acc
+    #[account(mut)]
     pub charger: AccountInfo<'info>,
     #[account(
+        mut,
         seeds = [b"charger", charger.key().as_ref()],
         bump
     )]
@@ -108,6 +111,7 @@ pub struct ChargerSession<'info> {
     /// CHECK: nft_mint_owner unsafe acc
     pub nft_mint_owner: AccountInfo<'info>,
     #[account(
+        mut,
         token::mint = mint,
         token::authority = nft_mint_owner
     )]
@@ -115,6 +119,7 @@ pub struct ChargerSession<'info> {
     /// CHECK:
     pub operator: AccountInfo<'info>,
     #[account(
+        mut,
         token::mint = mint,
         token::authority = operator
     )]
