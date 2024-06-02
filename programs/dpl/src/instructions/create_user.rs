@@ -1,6 +1,5 @@
 use anchor_lang::prelude::*;
 
-use crate::errors::DplError;
 use crate::state::user::User;
 
 pub fn create_user_ix(ctx: Context<CreateUser>, phone_number_hash: String) -> Result<()> {
