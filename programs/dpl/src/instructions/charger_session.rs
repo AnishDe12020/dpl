@@ -104,7 +104,7 @@ pub struct ChargerSession<'info> {
         seeds = [b"charger", charger.key().as_ref()],
         bump
     )]
-    pub charger_pda: Account<'info, Charger>,
+    pub charger_pda: Box<Account<'info, Charger>>,
     pub mint: Account<'info, Mint>,
     pub nft_mint: Account<'info, Mint>,
     /// CHECK: nft_mint_owner unsafe acc

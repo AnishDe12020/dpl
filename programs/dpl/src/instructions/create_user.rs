@@ -25,6 +25,6 @@ pub struct CreateUser<'info> {
         payer = user,
         space = User::LEN,
     )]
-    pub user_pda: Account<'info, User>,
+    pub user_pda: Box<Account<'info, User>>,
     pub system_program: Program<'info, System>,
 }

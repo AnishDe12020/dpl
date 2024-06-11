@@ -39,7 +39,7 @@ pub struct CreateCharger<'info> {
         payer = payer,
         space = Charger::LEN,
     )]
-    pub charger_pda: Account<'info, Charger>,
+    pub charger_pda: Box<Account<'info, Charger>>,
     /// CHECK: operator unsafe acc
     pub operator: AccountInfo<'info>,
 
