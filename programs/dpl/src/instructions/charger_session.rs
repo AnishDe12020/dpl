@@ -98,6 +98,7 @@ pub struct ChargerSession<'info> {
     )]
     pub user_ata: Account<'info, TokenAccount>,
     /// CHECK: charger unsafe acc
+    #[account(mut)]
     pub charger: AccountInfo<'info>,
     #[account(
         mut,
